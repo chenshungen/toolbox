@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [[ $1 == "" ]];then
+	#echo "please input a dir rsync to current dir"
+	echo "------------------CMD LIKE------------------"
+	echo -e "\033[32m rsyncworkerman /home/chen/php/GatewayWorker/ \033[0m"
+	exit
+fi
+
+DIR=$1
+
+cp -r $DIR/start.php ./
+
+cp -r $DIR/GatewayWorker/BusinessWorker.php ./GatewayWorker/ 
+cp -r $DIR/GatewayWorker/Gateway.php ./GatewayWorker/ 
+cp -r $DIR/GatewayWorker/Register.php ./GatewayWorker/ 
+
+cp -r $DIR/GatewayWorker/Lib/Context.php ./GatewayWorker/Lib/
+#cp -r $DIR/GatewayWorker/Lib/DbConnection.php ./GatewayWorker/Lib/   #使用自己的数据库连接操作
+cp -r $DIR/GatewayWorker/Lib/Db.php  ./GatewayWorker/Lib/
+cp -r $DIR/GatewayWorker/Lib/Gateway.php  ./GatewayWorker/Lib/
+
+cp -r $DIR/GatewayWorker/Protocols/GatewayProtocol.php  ./GatewayWorker/Protocols/
+
+
+cp -r $DIR/Workerman/*.php  ./Workerman/
+cp -r $DIR/Workerman/Connection/*.php  ./Workerman/Connection/
+cp -r $DIR/Workerman/Events/*.php  ./Workerman/Events/
+cp -r $DIR/Workerman/Lib/*.php  ./Workerman/Lib/
+cp -r $DIR/Workerman/Protocols/*.php  ./Workerman/Protocols/
+cp -r $DIR/Workerman/Protocols/Http/  ./Workerman/Protocols/
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+find `pwd` -name "*.php" > cscope.files
+
+cscope -RkebqUu
